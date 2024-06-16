@@ -1127,6 +1127,19 @@
     }
   }
 };
+            defs["inline_response_400_1"] = {
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "type" : "string",
+      "example" : "fail"
+    },
+    "message" : {
+      "type" : "string",
+      "example" : "This image is not identified as a leaf. Please provide a valid leaf image."
+    }
+  }
+};
             defs["inline_response_404"] = {
   "type" : "object",
   "properties" : {
@@ -1228,6 +1241,32 @@
     "message" : {
       "type" : "string",
       "example" : "Internal server error"
+    }
+  }
+};
+            defs["inline_response_502"] = {
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "type" : "string",
+      "example" : "error"
+    },
+    "message" : {
+      "type" : "string",
+      "example" : "Error storing image"
+    }
+  }
+};
+            defs["inline_response_503"] = {
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "type" : "string",
+      "example" : "error"
+    },
+    "message" : {
+      "type" : "string",
+      "example" : "Error classifying image"
     }
   }
 };
@@ -3940,6 +3979,54 @@ except ApiException as e:
                                 </div>
                             </div>
 
+                            <h3> Status: 400 - This image is not identified as a leaf. Please provide a valid leaf image. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-detectPost-400-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-detectPost-400-schema">
+                                  <div id='responses-detectPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "This image is not identified as a leaf. Please provide a valid leaf image.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_400_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-detectPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-detectPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-detectPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
                             <h3> Status: 404 - User not found </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
@@ -3988,7 +4075,7 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 500 - Internal Server Error </h3>
+                            <h3> Status: 500 - Internal server error </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
@@ -4003,7 +4090,7 @@ except ApiException as e:
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "Internal Server Error",
+  "description" : "Internal server error",
   "content" : {
     "application/json" : {
       "schema" : {
@@ -4033,6 +4120,102 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-detectPost-500-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 502 - Error storing image </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-detectPost-502-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-detectPost-502-schema">
+                                  <div id='responses-detectPost-502-schema-502' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Error storing image",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_502"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-detectPost-502-schema-data').val(stringify(schema));
+                                        var result = $('#responses-detectPost-502-schema-502');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-detectPost-502-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 503 - Error classifying image </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-detectPost-503-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-detectPost-503-schema">
+                                  <div id='responses-detectPost-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Error classifying image",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_503"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-detectPost-503-schema-data').val(stringify(schema));
+                                        var result = $('#responses-detectPost-503-schema-503');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-detectPost-503-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
